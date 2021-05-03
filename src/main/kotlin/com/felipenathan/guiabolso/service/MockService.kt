@@ -22,8 +22,8 @@ object MockService {
 
     fun generateRandomDescription(): String {
         val upperCasePattern = 'A'..'Z'
-        val vogal = arrayOf('a', 'e', 'i', 'o', 'u')
-        val lowerCasePattern = ('a'..'z') - vogal
+        val vowel = arrayOf('a', 'e', 'i', 'o', 'u')
+        val lowerCasePattern = ('a'..'z') - vowel
 
         var description = upperCasePattern.random().toString()
 
@@ -42,7 +42,7 @@ object MockService {
             if (description.length >= 60)
                 break
 
-            description += vogal.random()
+            description += vowel.random()
             if (description.length >= 60)
                 break
 
