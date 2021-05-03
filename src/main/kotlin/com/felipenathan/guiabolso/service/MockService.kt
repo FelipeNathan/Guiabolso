@@ -53,4 +53,11 @@ object MockService {
 
         return description
     }
+
+    fun generateRandomValue(id: Long, month: Int, i: Int): Int {
+        val minValue = -9999999
+        val maxValue = 9999999
+        val value = ((id / month) * i).toInt()
+        return if (value < minValue) minValue else if (value > maxValue) maxValue else value
+    }
 }
