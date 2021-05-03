@@ -3,7 +3,6 @@ package com.felipenathan.guiabolso.repository
 import com.felipenathan.guiabolso.service.MockService
 import com.felipenathan.guiabolso.vo.TransactionVO
 import org.springframework.stereotype.Repository
-import kotlin.random.Random
 
 @Repository
 class TransactionRepositoryImpl : TransactionRepository {
@@ -18,11 +17,18 @@ class TransactionRepositoryImpl : TransactionRepository {
                 TransactionVO(
                     MockService.generateRandomDescription(),
                     date.time,
-                    Random.nextInt(-9_999_999, 9_999_999)
+                    generateRandomValue(id, month, i)
                 )
             )
         }
 
         return transactions
+    }
+
+    fun generateRandomValue(id: Long, month: Int, i: Int): Int {
+        val minValue = -9999999
+        val maxValue = 9999999
+        val value = ((id / month) * i).toInt()
+        return if (value < minValue) minValue else if (value > maxValue) maxValue else value
     }
 }
