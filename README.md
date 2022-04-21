@@ -35,9 +35,3 @@ Content-type: application/json
 - Call the endpoint (I used Postman)
 
 ![](images/example.png)
-
-## Extra
-- You can also test the software on Heroku: 
-```
-http://guiabolso-mockapi.herokuapp.com/<id>/transacoes/<ano>/<mes>
-```
